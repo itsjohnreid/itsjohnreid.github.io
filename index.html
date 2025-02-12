@@ -13,21 +13,49 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 90vh;
-            padding: 0 28px;
             margin: 0;
             font-family: 'Roboto Mono', monospace;
             background-color: #f4f4f4;
             color: #222222;
+            padding: 160px 28px;
         }
+
         a {
             color: #bb1212;
+            font-weight: bold;
+            padding: 8px;
+            display: block;
         }
-        h3 {
+
+        h3,
+        h4 {
             color: #757575;
         }
+
         .content {
             max-width: 600px;
+            text-align: center;
+        }
+
+        .profile-photo {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #222;
+        }
+
+        .screenshot {
+            width: 180px;
+            border-radius: 24px;
+            object-fit: cover;
+            border: 8px solid #222;
+            margin: 16px;
+        }
+
+        .screenshot-gallery {
+            max-width: 800px;
+            padding: 60px 0px;
             text-align: center;
         }
     </style>
@@ -35,19 +63,49 @@
 
 <body>
     <div class="content">
+        <img src="me.jpg" alt="Johnathan Reid at the beach" class="profile-photo">
         <h1>Johnathan Reid</h1>
         <h3>iOS Developer</h3>
-        <p>Hi. I've been an iOS developer since 2019, and I really love good design.
-            I can take an app from prototype to launch on the App Store nooo worries.
-            Feel free to reach out on LinkedIn, or peruse Vanilla Code Co. to see some apps I've made.</p>
+        <p>I've been an iOS developer for <span id="yearsElapsed"></span> years, and I'm passionate about making
+            well-designed apps.
+            I have experience taking projects from inception, to prototype, to launch on the App Store.
+        </p>
+        <p>
+            I've worked on apps for the <b>Commonwealth Bank, Luxury Escapes, Jaycar, and Carlton & United
+                Breweries.</b>
+            I'm now working solo on some of my own stuff.
+        </p>
+        <p>
+            Check out <b>Vanilla Code Co.</b> for apps I'm working on, and iOS Development articles.
+        </p>
         <a href="https://vanillacode.co" target="_blank" rel="noopener noreferrer">Vanilla Code Co.</a>
-        <br>
         <a href="https://linkedin.com/in/itsjohnreid" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <br>
         <a href="https://github.com/itsjohnreid" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <br>
-        <a href="https://docs.google.com/document/d/1-ZypRBmPo7pivsdGc3JQqQDrK5dt9nwA2bXjst9H57A/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Résumé</a>
+        <a href="https://docs.google.com/document/d/1-ZypRBmPo7pivsdGc3JQqQDrK5dt9nwA2bXjst9H57A/edit?usp=sharing"
+            target="_blank" rel="noopener noreferrer">Résumé</a>
     </div>
+
+    <div class="screenshot-gallery">
+        <img src="screen1.PNG" alt="App screenshot" class="screenshot">
+        <img src="screen2.PNG" alt="App screenshot" class="screenshot">
+        <img src="screen3.PNG" alt="App screenshot" class="screenshot">
+        <img src="screen4.PNG" alt="App screenshot" class="screenshot">
+        <img src="screen5.PNG" alt="App screenshot" class="screenshot">
+        <img src="screen6.PNG" alt="App screenshot" class="screenshot">
+    </div>
+
+    <script>
+        // Calculate years since February 2019
+        function calculateYearsSince(date) {
+            const startDate = new Date(date);
+            const currentDate = new Date();
+            const diffInMilliseconds = currentDate - startDate;
+            const millisecondsPerYear = 1000 * 60 * 60 * 24 * 365.25; // Account for leap years
+            return (diffInMilliseconds / millisecondsPerYear).toFixed(0);
+        }
+
+        document.getElementById('yearsElapsed').textContent = calculateYearsSince('2019-02-01');
+    </script>
 </body>
 
 </html>
